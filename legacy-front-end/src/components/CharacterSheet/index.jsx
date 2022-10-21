@@ -14,12 +14,12 @@ const CharacterSheet = () => {
   } = useContext(characterSheetContext);
   return (
     <>
-    <AbilityScore value={strength} add={() => setStrength(prev => prev++)} subtract={() => setStrength(prev => prev--)}/>
-    <AbilityScore value={dexterity} add={() => setDexterity(prev => prev++)} subtract={() => setDexterity(prev => prev--)}/>
-    <AbilityScore value={constitution} add={() => setConstitution(prev => prev++)} subtract={() => setConstitution(prev => prev--)}/>
-    <AbilityScore value={intelligence} add={() => setIntelligence(prev => prev++)} subtract={() => setIntelligence(prev => prev--)}/>
-    <AbilityScore value={wisdom} add={() => setWisdom(prev => prev++)} subtract={() => setWisdom(prev => prev--)}/>
-    <AbilityScore value={charisma} add={() => setCharisma(prev => prev++)} subtract={() => setCharisma(prev => prev--)}/>
+    <AbilityScore name='Strength' value={strength} add={setStrength} subtract={setStrength}/>
+    <AbilityScore name='Dexterity' value={dexterity} add={setDexterity} subtract={setDexterity}/>
+    <AbilityScore name='Constitution' value={constitution} add={setConstitution} subtract={setConstitution}/>
+    <AbilityScore name='Intelligence' value={intelligence} add={setIntelligence} subtract={setIntelligence}/>
+    <AbilityScore name='Wisdom' value={wisdom} add={setWisdom} subtract={setWisdom}/>
+    <AbilityScore name='Charisma' value={charisma} add={setCharisma} subtract={setCharisma}/>
     </>
   );
 };
