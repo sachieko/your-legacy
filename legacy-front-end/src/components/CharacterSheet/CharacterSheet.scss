@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.ability-scores {
+  display: flex;
+  flex-direction: column;
+}
+
+.ability-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fff;
+  width: 10%;
+  background-color: $ability-bg-color;
+  .ability-btn {
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+    width: 100%;
+    button {
+    border: $button-border;
+    border-radius: 0.3em;
+    margin: 0.4em;
+    width: 40%;
+    background-color: $button-bg-color;
+    &:hover {
+      background-color: $button-bg-color--hover;
+    }
+    }
+  }
+}

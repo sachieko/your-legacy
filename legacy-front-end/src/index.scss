@@ -1,0 +1,9 @@
+@import './styles/variables';
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: $app-bg-color;
+  color: $app-text-color;
+}

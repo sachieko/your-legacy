@@ -5,10 +5,10 @@ const App = function() {
   return (
     <div className="App">
       <header className="App-header">
-        <CharacterSheetProvider>
-          <CharacterSheet />
-        </CharacterSheetProvider>
       </header>
+      <CharacterSheetProvider>
+        <CharacterSheet />
+      </CharacterSheetProvider>
     </div>
   );
 };
