@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { characterSheetContext } from "../../providers/CharacterSheetProvider";
 import AbilityScore from "./AbilityScore";
+import './CharacterSheet.scss';
 
 const CharacterSheet = () => {
   const {
@@ -14,12 +15,14 @@ const CharacterSheet = () => {
   } = useContext(characterSheetContext);
   return (
     <>
-    <AbilityScore name='Strength' value={strength} add={setStrength} subtract={setStrength}/>
-    <AbilityScore name='Dexterity' value={dexterity} add={setDexterity} subtract={setDexterity}/>
-    <AbilityScore name='Constitution' value={constitution} add={setConstitution} subtract={setConstitution}/>
-    <AbilityScore name='Intelligence' value={intelligence} add={setIntelligence} subtract={setIntelligence}/>
-    <AbilityScore name='Wisdom' value={wisdom} add={setWisdom} subtract={setWisdom}/>
-    <AbilityScore name='Charisma' value={charisma} add={setCharisma} subtract={setCharisma}/>
+    <div className='ability-scores'>
+      <AbilityScore name='Strength' value={strength} setter={setStrength} />
+      <AbilityScore name='Dexterity' value={dexterity} setter={setDexterity} />
+      <AbilityScore name='Constitution' value={constitution} setter={setConstitution} />
+      <AbilityScore name='Intelligence' value={intelligence} setter={setIntelligence} />
+      <AbilityScore name='Wisdom' value={wisdom} setter={setWisdom} />
+      <AbilityScore name='Charisma' value={charisma} setter={setCharisma} />
+    </div>
     </>
   );
 };

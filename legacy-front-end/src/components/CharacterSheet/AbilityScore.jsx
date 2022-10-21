@@ -3,12 +3,13 @@ const AbilityScore = (props) => {
 
   return (
     <div className='ability-score'>
-      {props.value}
+      <span className='ability-name'>{props.name}</span>
+      <span className='ability-value'>{props.value}</span>
+      <span className='ability-modifier'>{Math.floor((props.value - 10) / 2)}</span>
       <div className='ability-btn'>
-        <button onClick={() => props.subtract(prev => prev -= 1)}></button>
-        <button onClick={() => props.add(prev => prev += 1)}></button>
+        <button onClick={() => props.setter(prev => prev -= 1)}>-</button>
+        <button onClick={() => props.setter(prev => prev += 1)}>+</button>
       </div>
-      {props.name}
     </div>
   );
 };
