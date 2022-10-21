@@ -1,11 +1,13 @@
-import AbilityScore from "./components/CharacterSheet/AbilityScore";
+import CharacterSheet from "./components/CharacterSheet";
+import CharacterSheetProvider from "./providers/CharacterSheetProvider";
 
 const App = function() {
   return (
     <div className="App">
       <header className="App-header">
-        <p> Empty it out! </p>
-        <AbilityScore value='10' />
+        <CharacterSheetProvider>
+          <CharacterSheet />
+        </CharacterSheetProvider>
       </header>
     </div>
   );
