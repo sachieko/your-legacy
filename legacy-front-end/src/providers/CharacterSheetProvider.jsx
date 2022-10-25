@@ -11,6 +11,15 @@ export default function CharacterSheetProvider(props) {
   const [wisdom, setWisdom] = useState(10);
   const [charisma, setCharisma] = useState(10);
 
+  // Character Info state
+
+  const [characterName, setCharacterName] = useState('');
+  const [characterClass, setCharacterClass] = useState('');
+  const [background, setBackground] = useState('');
+  const [race, setRace] = useState('');
+  const [alignment, setAlignment] = useState('');
+  const [level, setLevel] = useState('');
+
   const characterData = {
     strength, setStrength,
     dexterity, setDexterity,
