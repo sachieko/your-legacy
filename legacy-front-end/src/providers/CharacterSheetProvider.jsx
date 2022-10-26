@@ -18,7 +18,10 @@ export default function CharacterSheetProvider(props) {
   const [background, setBackground] = useState('');
   const [race, setRace] = useState('');
   const [alignment, setAlignment] = useState('');
-  const [level, setLevel] = useState('');
+  const [level, setLevel] = useState(1);
+
+  const levelUp = setLevel(prev => prev += 1);
+  const levelDown = setLevel(prev => prev > 1 ? prev -= 1 : prev = 1);
 
   const characterData = {
     strength, setStrength,
@@ -26,7 +29,14 @@ export default function CharacterSheetProvider(props) {
     constitution, setConstitution,
     intelligence, setIntelligence,
     wisdom, setWisdom,
-    charisma, setCharisma
+    charisma, setCharisma,
+
+    characterName, setCharacterName,
+    characterClass, setCharacterClass,
+    background, setBackground,
+    race, setRace,
+    alignment, setAlignment,
+    level, levelUp, levelDown
   };
 
   return (
