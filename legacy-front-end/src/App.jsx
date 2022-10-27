@@ -1,10 +1,40 @@
-import { useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import CharacterSheet from "./components/CharacterSheet";
 import CharacterSheetProvider from "./providers/CharacterSheetProvider";
 import { AppDataContext } from './providers/AppDataProvider';
 
 const App = function() {
-  const { isConnected, lastPong, fetchCharacter, sendPing } = useContext(AppDataContext);
+  const { socket } = useContext(AppDataContext);
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  const [lastPong, setLastPong] = useState(null);
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      setIsConnected(true);
+    });
+
+    socket.on('disconnect', () => {
+      setIsConnected(false);
+    });
+
+    socket.on('pong', () => {
+      setLastPong(new Date().toISOString());
+    });
+
+    return () => {
+      socket.off('connect');
+      socket.off('disconnect');
+      socket.off('pong');
+    };
+  }, [socket]);
+
+  const sendPing = () => {
+    socket.emit('ping');
+  };
+
+  const fetchCharacter = () => {
+    socket.emit('character:get');
+  };
 
   return (
     <div className="App">
