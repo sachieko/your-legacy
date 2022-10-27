@@ -1,23 +1,25 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
+import { AppDataContext } from "./AppDataProvider";
 
 export const characterSheetContext = createContext();
 
 export default function CharacterSheetProvider(props) {
-  // Ability score state
-  const [strength, setStrength] = useState(10);
-  const [dexterity, setDexterity] = useState(10);
-  const [constitution, setConstitution] = useState(10);
-  const [intelligence, setIntelligence] = useState(10);
-  const [wisdom, setWisdom] = useState(10);
-  const [charisma, setCharisma] = useState(10);
+  const { socket } = useContext(AppDataContext);
+  const [character, setCharacter] = useState({});
+
+  useEffect(() => {
+    socket.on('character:load', data => {
+      setCharacter(data.character);
+    });
+    
+    return () => {
+      socket.off('character:load');
+    };
+    
+  }, [socket]);
 
   const characterData = {
-    strength, setStrength,
-    dexterity, setDexterity,
-    constitution, setConstitution,
-    intelligence, setIntelligence,
-    wisdom, setWisdom,
-    charisma, setCharisma
+    character, setCharacter
   };
 
   return (
