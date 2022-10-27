@@ -43,7 +43,7 @@ const App = function() {
       <CharacterSheetProvider>
         <CharacterSheet />
       </CharacterSheetProvider>
-      <button onclick={fetchCharacter}>Load Character</button>
+      <button onClick={fetchCharacter}>Load Character</button>
       <p>Connected: { '' + isConnected }</p>
       <p>Last Pong: { lastPong || '-' }</p>
       <button onClick={sendPing}>Send ping</button>

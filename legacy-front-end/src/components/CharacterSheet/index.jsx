@@ -4,24 +4,22 @@ import AbilityScore from "./AbilityScore";
 import './CharacterSheet.scss';
 
 const CharacterSheet = () => {
-  const {
-    strength, setStrength,
-    dexterity, setDexterity,
-    constitution, setConstitution,
-    intelligence, setIntelligence,
-    wisdom, setWisdom,
-    charisma, setCharisma
+  const { character, setCharacter } = useContext(characterSheetContext);
 
-  } = useContext(characterSheetContext);
+  const { strength, dexterity, constitution, intelligence, wisdom, charisma } = character;
+  const abilitySetter = (abilityScore, value) => {
+    setCharacter( prev => ({ ...prev, [abilityScore]: value })); // Updates only the selected ability score
+  };
+
   return (
     <>
     <div className='ability-scores'>
-      <AbilityScore name='Strength' value={strength} setter={setStrength} />
-      <AbilityScore name='Dexterity' value={dexterity} setter={setDexterity} />
-      <AbilityScore name='Constitution' value={constitution} setter={setConstitution} />
-      <AbilityScore name='Intelligence' value={intelligence} setter={setIntelligence} />
-      <AbilityScore name='Wisdom' value={wisdom} setter={setWisdom} />
-      <AbilityScore name='Charisma' value={charisma} setter={setCharisma} />
+      <AbilityScore name='Strength' value={strength} setter={abilitySetter} />
+      <AbilityScore name='Dexterity' value={dexterity} setter={abilitySetter} />
+      <AbilityScore name='Constitution' value={constitution} setter={abilitySetter} />
+      <AbilityScore name='Intelligence' value={intelligence} setter={abilitySetter} />
+      <AbilityScore name='Wisdom' value={wisdom} setter={abilitySetter} />
+      <AbilityScore name='Charisma' value={charisma} setter={abilitySetter} />
     </div>
     </>
   );
