@@ -18,7 +18,7 @@ module.exports = (io, socket) => {
 
   const saveCharacter = (characterData) => {
     // make call to database with character data
-    console.log(characterData);
+    charPlaceholder.character = characterData;
     // Promise resolves to success or error
   };
 
