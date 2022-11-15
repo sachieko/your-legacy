@@ -7,7 +7,11 @@ module.exports = (io, socket) => {
       constitution: 12,
       intelligence: 13,
       wisdom: 14,
-      charisma: 15
+      charisma: 15,
+      name: 'Yusei Tachibana',
+      class: 'Fighter',
+      race: 'Human',
+
     }
   }
   const getCharacter = () => { // Loads the character from the server. Placeholder character
@@ -18,7 +22,8 @@ module.exports = (io, socket) => {
 
   const saveCharacter = (characterData) => {
     // make call to database with character data
-    charPlaceholder.character = characterData;
+    charPlaceholder.character = { ...characterData };
+    console.log(charPlaceholder.character);
     // Promise resolves to success or error
   };
 

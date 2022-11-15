@@ -8,7 +8,13 @@ import './CharacterSheet.scss';
 const CharacterSheet = () => {
   const { socket } = useContext(AppDataContext);
   const { character, setCharacter } = useContext(characterSheetContext);
-  const { strength, dexterity, constitution, intelligence, wisdom, charisma } = character;
+  const {
+    strength,
+    dexterity,
+    constitution,
+    intelligence,
+    wisdom,
+    charisma } = character;
   const abilitySetter = (abilityScore, value) => {
     setCharacter( prev => ({ ...prev, [abilityScore]: value })); // Updates only the selected ability score
   };
@@ -33,6 +39,7 @@ const CharacterSheet = () => {
     </div>
     <Button onClick={fetchCharacter} text={'Load Character'} />
     <Button onClick={saveCharacter} text={'Save Character'} />
+    <Button onClick={() => console.log(character)} text={'Log Char'} />
     </>
   );
 };
