@@ -11,7 +11,10 @@ export default function CharacterSheetProvider(props) {
       constitution: 10,
       intelligence: 10,
       wisdom: 10,
-      charisma: 10
+      charisma: 10,
+      characterName: 'Name',
+      characterClass: 'Class',
+      race: 'Race'
   });
 
   useEffect(() => {

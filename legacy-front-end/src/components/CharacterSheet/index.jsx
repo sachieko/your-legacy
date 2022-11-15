@@ -3,6 +3,7 @@ import { characterSheetContext } from "../../providers/CharacterSheetProvider";
 import { AppDataContext } from "../../providers/AppDataProvider";
 import AbilityScore from "./AbilityScore";
 import Button from "../Button";
+import TextField from "./TextField";
 import './CharacterSheet.scss';
 
 const CharacterSheet = () => {
@@ -14,9 +15,17 @@ const CharacterSheet = () => {
     constitution,
     intelligence,
     wisdom,
-    charisma } = character;
+    charisma,
+    characterName,
+    characterClass,
+    race
+   } = character;
   const abilitySetter = (abilityScore, value) => {
     setCharacter( prev => ({ ...prev, [abilityScore]: value })); // Updates only the selected ability score
+  };
+
+  const textSetter = (field, value) => {
+    setCharacter( prev => ({ ...prev, [field]: value}));
   };
 
   const fetchCharacter = () => {
@@ -29,6 +38,11 @@ const CharacterSheet = () => {
 
   return (
     <>
+    <div className="biography">
+      <TextField onChange={textSetter} placeholder='Name' value={characterName} field={'characterName'} />
+      <TextField onChange={textSetter} placeholder='Class' value={characterClass} field={'characterClass'} />
+      <TextField onChange={textSetter} placeholder='Race' value={race} field={'race'} />
+    </div>
     <div className='ability-scores'>
       <AbilityScore name='Strength' value={strength} setter={abilitySetter} />
       <AbilityScore name='Dexterity' value={dexterity} setter={abilitySetter} />

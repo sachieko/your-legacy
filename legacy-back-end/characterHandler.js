@@ -8,12 +8,12 @@ module.exports = (io, socket) => {
       intelligence: 13,
       wisdom: 14,
       charisma: 15,
-      name: 'Yusei Tachibana',
-      class: 'Fighter',
+      characterName: 'Yusei Tachibana',
+      characterClass: 'Fighter',
       race: 'Human',
-
     }
-  }
+  };
+  
   const getCharacter = () => { // Loads the character from the server. Placeholder character
     socket.emit('character:load', charPlaceholder);
   };
