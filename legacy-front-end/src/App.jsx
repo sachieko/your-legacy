@@ -32,10 +32,6 @@ const App = function() {
     socket.emit('ping');
   };
 
-  const fetchCharacter = () => {
-    socket.emit('character:get');
-  };
-
   return (
     <div className="App">
       <header className="App-header">
@@ -43,7 +39,6 @@ const App = function() {
       <CharacterSheetProvider>
         <CharacterSheet />
       </CharacterSheetProvider>
-      <button onClick={fetchCharacter}>Load Character</button>
       <p>Connected: { '' + isConnected }</p>
       <p>Last Pong: { lastPong || '-' }</p>
       <button onClick={sendPing}>Send ping</button>

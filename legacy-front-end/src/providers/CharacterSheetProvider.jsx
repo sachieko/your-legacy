@@ -5,7 +5,14 @@ export const characterSheetContext = createContext();
 
 export default function CharacterSheetProvider(props) {
   const { socket } = useContext(AppDataContext);
-  const [character, setCharacter] = useState({});
+  const [character, setCharacter] = useState({
+      strength: 10,
+      dexterity: 10,
+      constitution: 10,
+      intelligence: 10,
+      wisdom: 10,
+      charisma: 10
+  });
 
   useEffect(() => {
     socket.on('character:load', data => {
